@@ -84,8 +84,8 @@ def ParseData(root):
 This function takes the previously created lists and creates a lists of tuples that are comprised of the elements of each list in order,
 such that the specific data of each event is grouped together.
 '''
-def UnifyData(unifiedData, lats, longs, times, mags):
-    unifiedData = list(zip_longest(lats, longs, times, mags, fillvalue =''))
+def UnifyData(unifiedData, latitude, longitude, time, magnitude):
+    unifiedData = list(zip_longest(latitude, longitude, time, magnitude, fillvalue =''))
     return unifiedData
 
 '''
@@ -139,8 +139,8 @@ into the next function.
 def Main(hoursShift, firstRun):
     hoursShift = TimeWindow(hoursShift, firstRun)
     root, utcPrevious = GetData(hoursShift)
-    unifiedData, lats, longs, times, mags = ParseData(root)
-    unifiedData = UnifyData(unifiedData, lats, longs, times, mags)  
+    unifiedData, latitude, longitude, time, magnitude = ParseData(root)
+    unifiedData = UnifyData(unifiedData, latitude, longitude, time, magnitude)  
     PlotMap(unifiedData)
     return utcPrevious, hoursShift
 
@@ -155,13 +155,15 @@ firstRun = False
 
 while True:
     try:
-        if arrow.utcnow() >= utcPrevious.shift(hours=+hoursShift):
+        currentTime = arrow.utcnow()
+        futureTime = utcPrevious.shift(hours=+hoursShift)
+        if currentTime >= futureTime:
             utcPrevious, hoursShift = Main(hoursShift, firstRun)
             count = 0
         else:
             sleep(300)
             count = count + 1
-            print('loop', count, 'of 12')
+            print('loop', count, 'of 12 before next data refresh')
         continue
     except KeyboardInterrupt:
         while True:
