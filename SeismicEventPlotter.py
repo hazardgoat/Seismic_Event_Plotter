@@ -1,11 +1,3 @@
-from urllib.request import urlopen  #allows the urlopen function to be called from the urllib.request modual, whi;ch itself allows urls to be opened
-from xml.etree.ElementTree import parse #allows the parse function to be called from the xml.etree.ElementTree modual, which itself alllows XML data to be parsed and created
-from itertools import zip_longest   #allows zip_longest function to be called from the itertools modual mso lists of uneven lengths can be zipped
-import arrow    #package that provides imporved function over native time modual
-from time import sleep  #allows the sleep function to be called from the time modual, which itself is used for time-related functions
-import folium   #mapping package
-import webbrowser   #modual for dispaying web-based documents (i.e. html file)
-
 '''
 Using a user defined time interval, this script pulls data in XML form from the NCEDC (Northern California Earthquake Data Center) 
 website (https://service.ncedc.org/fdsnws/event/1/), covering X number of hours back from the present, and then parses it to extract 
@@ -14,6 +6,16 @@ map, color coding by magnitude, where each marker displays the magnitude and tim
 and automatically opened in the default web browser. The program then refreshes the data at the user defined time interval. When 
 CTRL+C is pressed, the user will be prompted to either amend the monitoring interval or exit the program.
 '''
+
+
+from urllib.request import urlopen  #allows the urlopen function to be called from the urllib.request modual, whi;ch itself allows urls to be opened
+from xml.etree.ElementTree import parse #allows the parse function to be called from the xml.etree.ElementTree modual, which itself alllows XML data to be parsed and created
+from itertools import zip_longest   #allows zip_longest function to be called from the itertools modual mso lists of uneven lengths can be zipped
+import arrow    #package that provides imporved function over native time modual
+from time import sleep  #allows the sleep function to be called from the time modual, which itself is used for time-related functions
+import folium   #mapping package
+import webbrowser   #modual for dispaying web-based documents (i.e. html file)
+
 
 '''
 This function asks the user to define the number of hours back from the present to pull seismic readings. 
