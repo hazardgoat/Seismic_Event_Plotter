@@ -10,7 +10,7 @@ CTRL+C is pressed, the user will be prompted to either amend the monitoring inte
 
 from urllib.request import urlopen  #allows the urlopen function to be called from the urllib.request modual, whi;ch itself allows urls to be opened
 from xml.etree.ElementTree import parse #allows the parse function to be called from the xml.etree.ElementTree modual, which itself alllows XML data to be parsed and created
-from itertools import zip_longest   #allows zip_longest function to be called from the itertools modual mso lists of uneven lengths can be zipped
+from itertools import zip_longest   #allows zip_longest function to be called from the itertools modual so lists of uneven lengths can be zipped
 import arrow    #package that provides imporved function over native time modual
 from time import sleep  #allows the sleep function to be called from the time modual, which itself is used for time-related functions
 import folium   #mapping package
