@@ -50,10 +50,12 @@ def GetData(hoursShift):
     utcNow = arrow.utcnow()
     utcStart = utcNow.shift(hours=-hoursShift).format('YYYY-MM-DDTHH:mm:ss')
     utcEnd = utcNow.format('YYYY-MM-DDTHH:mm:ss')
-    urlHand = urlopen('https://service.ncedc.org/fdsnws/event/1/query'\
+    urlPath = 'https://service.ncedc.org/fdsnws/event/1/query'\
                 +'?start='+utcStart+'&end='+utcEnd+'&catalog'\
                 +'=NCSS&includeallmagnitudes=true&includearrivals=false&'\
-                +'includemechanisms=false&orderby=time&format=xml')
+                +'includemechanisms=false&orderby=time&format=xml'
+    print('Dataset URL:', urlPath+'\n')
+    urlHand = urlopen(urlPath)
     tree = parse(urlHand)
     root = tree.getroot()
     return root, utcNow
