@@ -1,4 +1,4 @@
-# SeismicEventPlotter
+# Seismic-Event-Plotter
 Utilizing a User defined time interval, this python script pulls data from the Northern California Earthquake Data Center (NCEDC) 
 website (https://service.ncedc.org/fdsnws/event/1/) in XML form, and then parses it to extract 
 the latitude, longitude, time, and magnitude of strong motion events captured by their network. It then plots the data on a zoomable Stamen 
