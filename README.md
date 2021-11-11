@@ -1,4 +1,4 @@
-# Seismic-Event-Plotter
+# Seismic Event Plotter
 <p align="center">
   <img alt="" style=" margin-left: 50px;margin-right: 50px;" src="https://user-images.githubusercontent.com/74040471/140024638-2875b24f-0249-4d23-8a89-57b63ccfe4db.png"/>
 </p>
